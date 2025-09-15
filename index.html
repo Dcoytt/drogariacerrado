@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drogaria Cerrado - A Drogaria do Povo em Alto Paraíso de Goiás</title>
+    <meta name="description" content="Drogaria Cerrado em Alto Paraíso de Goiás. As melhores ofertas e o atendimento que você confia. Peça pelo WhatsApp e receba em casa!">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* CSS Variables - Identidade Visual */
+        :root {
+            --vermelho: #D60C00;
+            --amarelo: #FFC62B;
+            --preto: #222222;
+            --branco: #FFFFFF;
+            --cinza-claro: #f8f9fa;
+        }
+
+        /* Reset e Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--preto);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--preto);
+        }
+
+        p {
+            margin-bottom: 15px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-principal {
+            background-color: var(--vermelho);
+            color: var(--branco);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--preto);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+        }
+        
+        /* Home (Hero Section) */
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('https://via.placeholder.com/1500x800.png/FFC62B/000000?Text=Imagem+de+Fundo') no-repeat center center/cover;
+            color: var(--preto);
+            text-align: center;
+            padding: 120px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        #home p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        #home .btn-group .btn {
+            margin: 0 10px;
+        }
+
+        /* Serviços */
+        #servicos {
+            background-color: var(--cinza-claro);
+        }
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .servico-card {
+            background: var(--branco);
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .servico-card i {
+            font-size: 3rem;
+            color: var(--vermelho);
+            margin-bottom: 20px;
+        }
+        .servico-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Ofertas */
+        .ofertas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .oferta-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .oferta-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .oferta-card-content {
+            padding: 20px;
+        }
+        .oferta-card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .preco {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--vermelho);
+            margin-bottom: 20px;
+        }
+        .preco span {
+            font-size: 1rem;
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        /* Sobre Nós */
+        #sobre {
+             background-color: var(--cinza-claro);
+        }
+
+        /* Contato */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .contato-info p {
+            text-align: left;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+        .contato-info a {
+            text-decoration: none;
+            color: var(--preto);
+        }
+
+        .contato-info i {
+            color: var(--vermelho);
+            font-size: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #localizacao iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--preto);
+            color: var(--branco);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-container p {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--amarelo);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-flutuante {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: var(--branco);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            text-decoration: none;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        /* Responsividade (Mobile First) */
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            #home h1 { font-size: 2.5rem; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: var(--branco);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                padding: 15px 0;
+            }
+            .hamburger {
+                display: block;
+            }
+            .contato-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <img src="Logo-Vermelho.png" alt="Logo Drogaria Cerrado">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1>Drogaria Cerrado</h1>
+                <p>A Drogaria do Povo. Cuidando da sua saúde com os melhores preços e o atendimento que você confia.</p>
+                <div class="btn-group">
+                    <a href="#ofertas" class="btn btn-principal">Ver Ofertas da Semana</a>
+                    <a href="https://wa.me/556198494463" target="_blank" class="btn">Fale com um Farmacêutico</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <p>Tudo o que você precisa para cuidar da sua saúde e bem-estar.</p>
+                <div class="servicos-grid">
+                    <div class="servico-card">
+                        <i class="fas fa-motorcycle"></i>
+                        <h3>Entrega em Domicílio</h3>
+                        <p>Peça pelo WhatsApp ou telefone e receba seus produtos no conforto de casa. Rápido e seguro.</p>
+                    </div>
+                    <div class="servico-card">
+                        <i class="fas fa-star"></i>
+                        <h3>Cartão Fidelidade</h3>
+                        <p>Cadastre-se gratuitamente em nosso programa de fidelidade e ganhe descontos e benefícios exclusivos.</p>
+                    </div>
+                    <div class="servico-card">
+                        <i class="fas fa-heart-pulse"></i>
+                        <h3>Aferição de Pressão</h3>
+                        <p>Monitore sua saúde conosco. Oferecemos o serviço de aferição de pressão arterial com profissionais.</p>
+                    </div>
+                    <div class="servico-card">
+                        <i class="fas fa-syringe"></i>
+                        <h3>Vacinação e Imunização</h3>
+                        <p>Mantenha sua saúde em dia com nossos serviços de vacinação para diversas necessidades. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ofertas">
+            <div class="container">
+                <h2>Promoções que Cabem no Seu Bolso</h2>
+                <p>Confira nossas ofertas especiais desta semana e economize!</p>
+                <div class="ofertas-grid">
+                    <div class="oferta-card">
+                        <img src="https://via.placeholder.com/300x300.png?text=Produto+1" alt="Nome do Produto 1">
+                        <div class="oferta-card-content">
+                            <h3>Nome do Produto Exemplo</h3>
+                            <div class="preco"><span>R$ 29,99</span> R$ 19,99</div>
+                            <a href="https://wa.me/556198494463?text=Olá,%20tenho%20interesse%20no%20Produto%20Exemplo" target="_blank" class="btn btn-principal">Pedir no WhatsApp</a>
+                        </div>
+                    </div>
+                     <div class="oferta-card">
+                        <img src="https://via.placeholder.com/300x300.png?text=Produto+2" alt="Nome do Produto 2">
+                        <div class="oferta-card-content">
+                            <h3>Outro Produto em Oferta</h3>
+                            <div class="preco"><span>R$ 45,50</span> R$ 34,90</div>
+                            <a href="https://wa.me/556198494463?text=Olá,%20tenho%20interesse%20no%20Outro%20Produto%20em%20Oferta" target="_blank" class="btn btn-principal">Pedir no WhatsApp</a>
+                        </div>
+                    </div>
+                     <div class="oferta-card">
+                        <img src="https://via.placeholder.com/300x300.png?text=Produto+3" alt="Nome do Produto 3">
+                        <div class="oferta-card-content">
+                            <h3>Item de Higiene</h3>
+                            <div class="preco"><span>R$ 15,00</span> R$ 9,99</div>
+                            <a href="https://wa.me/556198494463?text=Olá,%20tenho%20interesse%20no%20Item%20de%20Higiene" target="_blank" class="btn btn-principal">Pedir no WhatsApp</a>
+                        </div>
+                    </div>
+                     <div class="oferta-card">
+                        <img src="https://via.placeholder.com/300x300.png?text=Produto+4" alt="Nome do Produto 4">
+                        <div class="oferta-card-content">
+                            <h3>Vitamina C</h3>
+                            <div class="preco"><span>R$ 32,00</span> R$ 25,00</div>
+                            <a href="https://wa.me/556198494463?text=Olá,%20tenho%20interesse%20na%20Vitamina%20C" target="_blank" class="btn btn-principal">Pedir no WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <div class="container">
+                <h2>Nossa História</h2>
+                <p>Fundada em 04/06/2024, a Drogaria Cerrado nasceu no coração da comunidade de Alto Paraíso de Goiás com a missão de oferecer acesso à saúde e bem-estar com um atendimento humanizado e preços justos. Nossos valores são a confiança, a proximidade com nossos clientes e a qualidade em tudo que fazemos. Somos a drogaria da sua família, sempre prontos para cuidar de você.</p>
+            </div>
+        </section>
+        
+        <section id="contato">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Tem alguma dúvida ou quer fazer um pedido? Fale conosco!</p>
+                <div class="contato-grid">
+                    <div class="contato-info">
+                        <p><i class="fab fa-whatsapp"></i><a href="https://wa.me/556198494463" target="_blank">(61) 9849-4463</a></p>
+                        <p><i class="fas fa-envelope"></i><a href="mailto:DROGARIACERROALTO@GMAIL.COM">DROGARIACERROALTO@GMAIL.COM</a> </p>
+                        <p><i class="fas fa-map-marker-alt"></i>Quadra 54, Lote 5 - Paraisinho, Alto Paraíso de Goiás - GO, 73770-000 </p>
+                        <p><i class="fas fa-clock"></i> Seg a Sáb: 08h às 22h | Dom: 09h às 18h</p>
+                    </div>
+                    <form action="#" method="POST">
+                        <input type="text" name="name" placeholder="Seu Nome" required>
+                        <input type="text" name="phone" placeholder="Seu Telefone / WhatsApp" required>
+                        <textarea name="message" rows="5" placeholder="Sua Mensagem" required></textarea>
+                        <button type="submit" class="btn btn-principal">Enviar Mensagem</button>
+                    </form>
+                </div>
+                <div id="localizacao">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.891128383852!2d-47.5135789!3d-14.133221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x934473f3a8b45f1d%3A0x25e4c415555b766!2sAlto%20Para%C3%ADso%20de%20Goi%C3%A1s%2C%20GO%2C%2073770-000!5e0!3m2!1spt-BR!2sbr!4v1694783859600!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <p><strong>DROGARIA CERRADO LTDA</strong> [cite: 10] | CNPJ: 55.387.119/0001-50 </p>
+            <p>Endereço: Quadra 54, Lote 5, Paraisinho, Alto Paraíso de Goiás - GO, CEP: 73.770-000 </p>
+            <p><strong>!! INSIRA O NOME DO FARMACÊUTICO RESPONSÁVEL E CRF AQUI !!</strong></p>
+            <div class="footer-links">
+  		<a href="privacidade.html">Política de Privacidade</a> | <a href="termos.html">Termos de Uso</a>
+	    </div>
+
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5562996717971" target="_blank" class="whatsapp-flutuante">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fecha o menu ao clicar em um link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
